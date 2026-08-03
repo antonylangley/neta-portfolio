@@ -1,53 +1,56 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
 import type { ReactNode } from "react";
-import { Footer } from "@/components/Footer";
-import { SiteHeader } from "@/components/SiteHeader";
-import { site } from "@/data/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-plex-sans",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
 });
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
+});
+
+const siteTitle = "Neta Rogovsky - HCI & UI/UX Designer";
+const siteDescription =
+  "Portfolio for Neta Rogovsky, an HCI student and UI/UX designer creating thoughtful digital experiences through research, interaction design, and visual systems.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.metadata.siteUrl),
   title: {
-    default: site.metadata.title,
-    template: `%s | ${site.name}`,
+    default: siteTitle,
+    template: "%s | Neta Rogovsky",
   },
-  description: site.metadata.description,
-  authors: [{ name: site.metadata.author }],
-  keywords: site.metadata.keywords,
-  alternates: {
-    canonical: "/",
-  },
+  description: siteDescription,
+  authors: [{ name: "Neta Rogovsky" }],
+  keywords: [
+    "Neta Rogovsky",
+    "HCI",
+    "UI/UX designer",
+    "NJIT",
+    "portfolio",
+    "Figma",
+    "interaction design",
+  ],
   openGraph: {
-    title: site.metadata.title,
-    description: site.metadata.description,
-    url: site.metadata.siteUrl,
-    siteName: `${site.name} Portfolio`,
+    title: siteTitle,
+    description: siteDescription,
     type: "website",
-    images: [
-      {
-        url: site.metadata.openGraphImage,
-        width: 1200,
-        height: 630,
-        alt: "Neta HCI and UI/UX design portfolio social preview.",
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: site.metadata.title,
-    description: site.metadata.description,
-    images: [site.metadata.openGraphImage],
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
   },
   icons: {
     icon: "/favicon.ico",
@@ -62,17 +65,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${plexSans.variable} ${plexMono.variable} ${newsreader.variable}`}
     >
-      <body className="flex min-h-full flex-col">
+      <body>
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
-        <SiteHeader />
-        <main className="flex-1" id="main-content">
-          {children}
-        </main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

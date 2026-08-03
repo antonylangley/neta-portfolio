@@ -1,135 +1,135 @@
-import Image from "next/image";
+import { FigmaPrototype } from "@/components/FigmaPrototype";
+import { Nav } from "@/components/Nav";
 import Link from "next/link";
-import { ArrowRight, FileText, GraduationCap, Mail, MapPin } from "lucide-react";
-import { ButtonLink } from "@/components/ButtonLink";
-import { ProjectCard } from "@/components/ProjectCard";
-import { SectionLabel } from "@/components/SectionLabel";
-import { featuredProjects } from "@/data/projects";
-import { site } from "@/data/site";
-import { getMailtoHref } from "@/lib/links";
+
+const resumePath = "/resume.pdf";
+const email = "nr598@njit.edu";
+const linkedin = "https://www.linkedin.com/in/neta-rogovsky/";
+
+const projects = [
+  {
+    title: "RollTech",
+    description:
+      "A custom internal tool built for NJIT Admissions, the stakeholder team behind this project, helping staff manage tasks, schedules, and team communication in one dashboard.",
+    figmaEmbedUrl:
+      "https://embed.figma.com/proto/aNuP023sTunSMUPs02gsse/IT-485-Final---NJIT-Admissions?node-id=611-5101&p=f&scaling=scale-down&content-scaling=fixed&page-id=25%3A55&starting-point-node-id=394%3A2085&embed-host=share",
+    figmaPrototypeUrl:
+      "https://www.figma.com/proto/aNuP023sTunSMUPs02gsse/IT-485-Final---NJIT-Admissions?node-id=611-5101&p=f&scaling=scale-down&content-scaling=fixed&page-id=25%3A55&starting-point-node-id=394%3A2085",
+  },
+  {
+    title: "Chimera",
+    description:
+      "A UI redesign for a stakeholder's existing app connected to his home security camera system. My team rebuilt the interface around his suggestions and vision for the app's next version.",
+    figmaEmbedUrl:
+      "https://embed.figma.com/proto/dOpCs7iBdvx63y5SCiRr62/IT-485---REDESIGN--Chimera---Kirin--Copy-?node-id=2086-801&scaling=scale-down&content-scaling=fixed&page-id=14%3A22&starting-point-node-id=2101%3A1006&embed-host=share",
+    figmaPrototypeUrl:
+      "https://www.figma.com/proto/dOpCs7iBdvx63y5SCiRr62/IT-485---REDESIGN--Chimera---Kirin--Copy-?node-id=2086-801&scaling=scale-down&content-scaling=fixed&page-id=14%3A22&starting-point-node-id=2101%3A1006",
+  },
+  {
+    title: "File Finder",
+    description:
+      "A tool built at a professor's request to help him locate files across different classes and semesters, including tests, grades, assignments, and student work, all from one place.",
+    figmaEmbedUrl:
+      "https://embed.figma.com/proto/ONdzq12FCH30o8BKlLZnTB/Prof-S-File-Finder-Wireframes--Copy-?node-id=203-419&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A3&embed-host=share",
+    figmaPrototypeUrl:
+      "https://www.figma.com/proto/ONdzq12FCH30o8BKlLZnTB/Prof-S-File-Finder-Wireframes--Copy-?node-id=203-419&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A3",
+  },
+  {
+    title: "SHPE App",
+    description:
+      "Ongoing work as UI/UX designer and frontend developer on the SHPE app, creating design files for the existing app and designing new features for future implementation in Figma.",
+    figmaEmbedUrl:
+      "https://embed.figma.com/proto/MfZ4cRgvESwpW8MVMkIGzb/SHPE-App-2026?node-id=43-2&starting-point-node-id=43%3A2&embed-host=share",
+    figmaPrototypeUrl:
+      "https://www.figma.com/proto/MfZ4cRgvESwpW8MVMkIGzb/SHPE-App-2026?node-id=43-2&starting-point-node-id=43%3A2",
+  },
+];
 
 export default function Home() {
   return (
     <>
-      <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div>
-            <SectionLabel color="#2563eb">{site.availability}</SectionLabel>
-            <p className="text-sm font-bold uppercase text-muted">{site.title}</p>
-            <h1 className="mt-5 max-w-4xl text-4xl font-black leading-[1.08] text-charcoal sm:text-5xl lg:text-6xl">
-              {site.heroStatement}
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">{site.shortBio}</p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/work" icon={ArrowRight} variant="primary">
-                View selected work
-              </ButtonLink>
-              <ButtonLink href={getMailtoHref(site.email)} icon={Mail}>
-                Contact Neta
-              </ButtonLink>
-              <ButtonLink href="/resume" icon={FileText} variant="quiet">
-                Resume
-              </ButtonLink>
-            </div>
-
-            <dl className="mt-10 grid gap-3 text-sm sm:grid-cols-3">
-              <div className="rounded-lg border border-line bg-white p-4 shadow-soft">
-                <dt className="flex items-center gap-2 font-bold text-charcoal">
-                  <GraduationCap aria-hidden="true" className="size-4 text-blue" />
-                  School
-                </dt>
-                <dd className="mt-2 text-muted">{site.school}</dd>
-              </div>
-              <div className="rounded-lg border border-line bg-white p-4 shadow-soft">
-                <dt className="flex items-center gap-2 font-bold text-charcoal">
-                  <MapPin aria-hidden="true" className="size-4 text-green" />
-                  Location
-                </dt>
-                <dd className="mt-2 text-muted">{site.location}</dd>
-              </div>
-              <div className="rounded-lg border border-line bg-white p-4 shadow-soft">
-                <dt className="font-bold text-charcoal">Focus</dt>
-                <dd className="mt-2 text-muted">Research, prototyping, visual systems</dd>
-              </div>
-            </dl>
-          </div>
-
-          <div className="selection-frame canvas-grid rounded-lg border border-charcoal bg-surface p-4 shadow-selection">
-            <div className="mb-3 flex items-center justify-between text-xs font-bold uppercase text-muted">
-              <span>Frame / Portfolio cover</span>
-              <span>Replace image</span>
-            </div>
-            <Image
-              alt="Placeholder portrait and design canvas for Neta's portfolio."
-              className="h-auto w-full rounded-lg border border-line bg-white"
-              height={980}
-              priority
-              src="/images/profile/profile-placeholder.svg"
-              width={1120}
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y border-line bg-surface px-4 py-16 sm:px-6 lg:px-8" id="work">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <Nav activePage="home" />
+      <main className="site-shell home-main" id="main-content">
+        <section aria-label="Introduction" className="hero-section">
+          <div className="home-hero-cols">
             <div>
-              <SectionLabel color="#f97316">Selected work</SectionLabel>
-              <h2 className="max-w-3xl text-4xl font-black text-charcoal">Case studies ready for real project content.</h2>
+              <h1>Neta Rogovsky</h1>
+              <p className="hero-copy">
+                I&apos;m an HCI student and UI/UX designer creating thoughtful digital experiences
+                through research, interaction design, and visual systems.
+              </p>
+              <div className="button-row">
+                <a
+                  className="button button-primary"
+                  download="Neta-Rogovsky-Resume.pdf"
+                  href={resumePath}
+                >
+                  Download resume
+                </a>
+                <a className="button button-secondary" href={`mailto:${email}`}>
+                  Get in touch
+                </a>
+              </div>
             </div>
-            <Link
-              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-charcoal transition hover:border-charcoal focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-blue"
-              href="/work"
-            >
-              See all work
-              <ArrowRight aria-hidden="true" className="size-4" />
-            </Link>
-          </div>
 
-          <div className="grid gap-6">
-            {featuredProjects.map((project, index) => (
-              <ProjectCard index={index} key={project.slug} project={project} />
-            ))}
+            <div className="info-panel" aria-label="Profile details">
+              <div>
+                <span>Title</span>
+                <br />
+                HCI & UI/UX Designer
+              </div>
+              <div>
+                <span>School</span>
+                <br />
+                NJIT
+              </div>
+              <div>
+                <span>Location</span>
+                <br />
+                Newark, NJ
+              </div>
+              <div>
+                <span>Contact</span>
+                <br />
+                <a href={`mailto:${email}`}>{email}</a>
+              </div>
+              <div>
+                <a href={linkedin} rel="noopener noreferrer" target="_blank">
+                  LinkedIn -&gt;
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionLabel color="#10b981">Design approach</SectionLabel>
-          <div className="grid gap-6 md:grid-cols-3">
-            {site.approach.map((item) => (
-              <article className="rounded-lg border border-line bg-white p-6 shadow-soft" key={item.label}>
-                <p className="text-xs font-bold uppercase text-muted">{item.label}</p>
-                <h3 className="mt-4 text-2xl font-bold text-charcoal">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-muted">{item.text}</p>
+        <section aria-label="Selected work" className="work-section" id="work">
+          <span className="section-kicker">Selected Work</span>
+
+          <div className="project-stack">
+            {projects.map((project) => (
+              <article className="project-block" key={project.title}>
+                <h2>{project.title}</h2>
+                <p>{project.description}</p>
+                <FigmaPrototype
+                  aspectRatio="16 / 9.5"
+                  figmaEmbedUrl={project.figmaEmbedUrl}
+                  figmaPrototypeUrl={project.figmaPrototypeUrl}
+                  title={project.title}
+                />
               </article>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="border-t border-line bg-white px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.85fr_1.15fr] md:items-center">
+        <footer className="site-footer">
+          <span>(c) 2026 Neta Rogovsky.</span>
           <div>
-            <SectionLabel color="#e11d48">About preview</SectionLabel>
-            <h2 className="text-4xl font-black text-charcoal">A portfolio built around process, not just polished screens.</h2>
+            <Link href="/#work">Work</Link>
+            <Link href="/about">About</Link>
+            <a href={`mailto:${email}`}>Contact</a>
           </div>
-          <div>
-            <p className="text-lg leading-8 text-muted">{site.longBio[0]}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink href="/about" icon={ArrowRight} variant="primary">
-                Read about Neta
-              </ButtonLink>
-              <ButtonLink href={getMailtoHref(site.email)} icon={Mail}>
-                Start a conversation
-              </ButtonLink>
-            </div>
-          </div>
-        </div>
-      </section>
+        </footer>
+      </main>
     </>
   );
 }
