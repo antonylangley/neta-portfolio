@@ -333,6 +333,59 @@ h3 {
   width: 100%;
 }
 
+.shpe-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.shpe-primary-frame,
+.shpe-board-frame {
+  background: var(--warm-white);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.shpe-primary-frame {
+  background: #000;
+}
+
+.shpe-primary-image,
+.shpe-board-image {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.shpe-primary-image {
+  object-fit: contain;
+}
+
+.shpe-context-grid {
+  align-items: start;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(220px, 0.45fr) minmax(0, 1fr);
+}
+
+.shpe-context-grid p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 44ch;
+}
+
+.shpe-kicker {
+  margin-bottom: 14px;
+}
+
+.shpe-board-frame {
+  background: #d0d0d0;
+}
+
 .site-footer {
   align-items: center;
   border-top: 1px solid var(--rule);
@@ -443,7 +496,8 @@ h3 {
 @media (max-width: 860px) {
   .home-hero-cols,
   .about-grid,
-  .skills-grid {
+  .skills-grid,
+  .shpe-context-grid {
     grid-template-columns: 1fr;
   }
 

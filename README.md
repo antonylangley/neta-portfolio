@@ -37,6 +37,7 @@ Primary content is intentionally simple:
 - About page: `src/app/about/page.tsx`
 - Navigation: `src/components/Nav.tsx`
 - Figma iframe renderer: `src/components/FigmaPrototype.tsx`
+- SHPE screenshots: `public/images/shpe`
 - Visual styling: `src/app/globals.css`
 
 ## Add Figma Prototype Embeds

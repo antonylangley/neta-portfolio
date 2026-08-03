@@ -1,5 +1,6 @@
 import { FigmaPrototype } from "@/components/FigmaPrototype";
 import { Nav } from "@/components/Nav";
+import Image from "next/image";
 import Link from "next/link";
 
 const resumePath = "/resume.pdf";
@@ -37,11 +38,8 @@ const projects = [
   {
     title: "SHPE App",
     description:
-      "Ongoing work as UI/UX designer and frontend developer on the SHPE app, creating design files for the existing app and designing new features for future implementation in Figma.",
-    figmaEmbedUrl:
-      "https://embed.figma.com/proto/MfZ4cRgvESwpW8MVMkIGzb/SHPE-App-2026?node-id=43-2&starting-point-node-id=43%3A2&embed-host=share",
-    figmaPrototypeUrl:
-      "https://www.figma.com/proto/MfZ4cRgvESwpW8MVMkIGzb/SHPE-App-2026?node-id=43-2&starting-point-node-id=43%3A2",
+      "Ongoing work as UI/UX designer and frontend developer on the SHPE NJIT app, which is already live on the App Store and used by about 200 members. I create design files for the existing app and design new features for future implementation.",
+    imageSet: "shpe",
   },
 ];
 
@@ -110,12 +108,51 @@ export default function Home() {
               <article className="project-block" key={project.title}>
                 <h2>{project.title}</h2>
                 <p>{project.description}</p>
-                <FigmaPrototype
-                  aspectRatio="16 / 9.5"
-                  figmaEmbedUrl={project.figmaEmbedUrl}
-                  figmaPrototypeUrl={project.figmaPrototypeUrl}
-                  title={project.title}
-                />
+                {"imageSet" in project ? (
+                  <div className="shpe-showcase">
+                    <figure className="shpe-primary-frame">
+                      <div className="prototype-header">
+                        <span>Current app screen</span>
+                        <span>App Store live</span>
+                      </div>
+                      <Image
+                        alt="SHPE NJIT app home screen shown inside a phone mockup."
+                        className="shpe-primary-image"
+                        height={1644}
+                        src="/images/shpe/shpe-app-home.png"
+                        width={3024}
+                      />
+                    </figure>
+
+                    <div className="shpe-context-grid">
+                      <div>
+                        <span className="section-kicker shpe-kicker">Before and after redesign</span>
+                        <p>
+                          This board shows redesigned SHPE NJIT app screens and notes across the
+                          home, profile, events, ranking, settings, and feed flows. The redesign
+                          clarifies navigation, separates profile editing from profile viewing,
+                          rounds controls to match the app style, and adds clearer feed prompts.
+                        </p>
+                      </div>
+                      <figure className="shpe-board-frame">
+                        <Image
+                          alt="Before and after SHPE NJIT app redesign board with annotated screens and design notes."
+                          className="shpe-board-image"
+                          height={1512}
+                          src="/images/shpe/shpe-redesign-board.png"
+                          width={1913}
+                        />
+                      </figure>
+                    </div>
+                  </div>
+                ) : (
+                  <FigmaPrototype
+                    aspectRatio="16 / 9.5"
+                    figmaEmbedUrl={project.figmaEmbedUrl}
+                    figmaPrototypeUrl={project.figmaPrototypeUrl}
+                    title={project.title}
+                  />
+                )}
               </article>
             ))}
           </div>
