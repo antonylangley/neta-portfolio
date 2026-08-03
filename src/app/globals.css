@@ -453,6 +453,7 @@ h3 {
   cursor: zoom-in;
   display: block;
   height: clamp(220px, 32vw, 340px);
+  margin: 0 auto;
   overflow: hidden;
   position: relative;
   transition:
@@ -747,21 +748,51 @@ h3 {
 }
 
 .about-grid h2 + p,
-.interest-stack p {
+.coursework-block p {
   color: var(--ink-soft);
   font-size: 15px;
   line-height: 1.7;
 }
 
-.interest-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.coursework-block {
+  margin-top: 24px;
 }
 
-.interest-stack strong {
+.coursework-block h3 {
+  font-family: var(--font-plex-sans), Arial, sans-serif;
   font-size: 15px;
   font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.coursework-list {
+  border-top: 1px solid var(--rule);
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  max-width: 760px;
+  padding: 0;
+}
+
+.coursework-list li {
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  gap: 4px;
+  padding: 13px 18px 13px 0;
+}
+
+.coursework-list strong {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.coursework-list span {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 .skills-section {
@@ -898,6 +929,10 @@ h3 {
   .prototype-header {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .coursework-list {
+    grid-template-columns: 1fr;
   }
 }
 

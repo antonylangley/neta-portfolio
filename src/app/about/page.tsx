@@ -9,7 +9,7 @@ const linkedin = "https://www.linkedin.com/in/neta-rogovsky/";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Neta Rogovsky: HCI education, design philosophy, skills, and contact links.",
+    "About Neta Rogovsky: HCI education, relevant coursework, skills, and contact links.",
 };
 
 export default function AboutPage() {
@@ -25,10 +25,9 @@ export default function AboutPage() {
         <section className="about-grid">
           <span>Biography</span>
           <p>
-            I&apos;m a Human-Computer Interaction student and UI/UX designer focused on making
-            digital products feel clear, considerate, and human. My work moves between structured
-            research and detailed visual craft. I&apos;m equally comfortable synthesizing interview
-            notes and refining a component&apos;s spacing.
+            I&apos;m a Human-Computer Interaction student at NJIT focused on UI/UX design,
+            product thinking, and front-end prototyping. My work combines research, interface
+            structure, visual design, and implementation so digital products feel clear and usable.
           </p>
         </section>
 
@@ -37,31 +36,47 @@ export default function AboutPage() {
           <div>
             <h2>B.S. Human-Computer Interaction, NJIT</h2>
             <p>
-              Coursework in interaction design, cognitive psychology, research methods, and
-              front-end prototyping. Expected graduation 2027.
+              Expected graduation 2027. My coursework has focused on user experience design,
+              information design, research methods, psychology, web development, and ethical
+              computing.
             </p>
-          </div>
-        </section>
 
-        <section className="about-grid">
-          <span>Design Philosophy</span>
-          <p>
-            Good design is legible before it is clever. I start from constraints and evidence,
-            sketch broadly, and narrow through testing rather than intuition alone, aiming for
-            interfaces that disappear into the task at hand.
-          </p>
-        </section>
-
-        <section className="about-grid">
-          <span>Interests</span>
-          <div className="interest-stack">
-            <div>
-              <strong>Design</strong>
-              <p>Design systems, information-dense interfaces, and accessible interaction patterns.</p>
-            </div>
-            <div>
-              <strong>Research</strong>
-              <p>Mixed-methods research, cognitive load in navigation, and inclusive design practices.</p>
+            <div className="coursework-block">
+              <h3>Relevant Coursework</h3>
+              <ul className="coursework-list">
+                <li>
+                  <strong>IS 247</strong>
+                  <span>Designing the User Experience</span>
+                </li>
+                <li>
+                  <strong>IS 375</strong>
+                  <span>Discovering User Needs for UX</span>
+                </li>
+                <li>
+                  <strong>IT 201</strong>
+                  <span>Information Design Techniques</span>
+                </li>
+                <li>
+                  <strong>AD 150</strong>
+                  <span>Color and Composition</span>
+                </li>
+                <li>
+                  <strong>IS 117</strong>
+                  <span>Introduction to Website Development</span>
+                </li>
+                <li>
+                  <strong>IS 218</strong>
+                  <span>Building Web Applications</span>
+                </li>
+                <li>
+                  <strong>PSY 304 / 307</strong>
+                  <span>Social Science Research Methods I & II</span>
+                </li>
+                <li>
+                  <strong>IS 350</strong>
+                  <span>Computers, Society and Ethics</span>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
@@ -101,11 +116,6 @@ export default function AboutPage() {
               </ul>
             </div>
           </div>
-        </section>
-
-        <section className="about-grid">
-          <span>Beyond design</span>
-          <p>Sketchbooks, film photography, and long walks that turn into new project ideas.</p>
         </section>
 
         <section className="resume-contact">

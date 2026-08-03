@@ -14,6 +14,7 @@ export type InspectableImage = {
 type InspectorModalProps = {
   galleryLabel?: string;
   images: InspectableImage[];
+  initialIndex?: number;
   initialZoom?: number;
   isOpen: boolean;
   onClose: () => void;
@@ -40,13 +41,14 @@ function clampZoom(value: number) {
 function InspectorModal({
   galleryLabel,
   images,
+  initialIndex = 0,
   initialZoom = 1,
   isOpen,
   onClose,
   title,
 }: InspectorModalProps) {
   const titleId = useId();
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(initialIndex);
   const [zoom, setZoom] = useState(initialZoom);
   const activeImage = images[activeIndex] ?? images[0];
 
@@ -208,13 +210,15 @@ export function InspectableGallery({
   images,
   initialZoom = 1,
   modalTitle,
+  previewIndex = 0,
 }: {
   images: InspectableImage[];
   initialZoom?: number;
   modalTitle: string;
+  previewIndex?: number;
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const previewImage = images[0];
+  const previewImage = images[previewIndex] ?? images[0];
 
   if (!previewImage) {
     return null;
@@ -243,6 +247,7 @@ export function InspectableGallery({
         <InspectorModal
           galleryLabel="Original Chimera UI screenshots"
           images={images}
+          initialIndex={previewIndex}
           initialZoom={initialZoom}
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}

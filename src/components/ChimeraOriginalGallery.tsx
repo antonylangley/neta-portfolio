@@ -63,6 +63,7 @@ export function ChimeraOriginalGallery() {
       images={chimeraOriginalScreens}
       initialZoom={1.1}
       modalTitle="Chimera Original UI"
+      previewIndex={1}
     />
   );
 }
