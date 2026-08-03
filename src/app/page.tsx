@@ -36,7 +36,7 @@ const projects = [
       "https://www.figma.com/proto/ONdzq12FCH30o8BKlLZnTB/Prof-S-File-Finder-Wireframes--Copy-?node-id=203-419&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A3",
   },
   {
-    title: "SHPE App",
+    title: "SHPE NJIT App",
     description:
       "Ongoing work as UI/UX designer and frontend developer on the SHPE NJIT app, which is already live on the App Store and used by about 200 members. I create design files for the existing app and design new features for future implementation.",
     imageSet: "shpe",
@@ -124,26 +124,29 @@ export default function Home() {
                       />
                     </figure>
 
-                    <div className="shpe-context-grid">
-                      <div>
-                        <span className="section-kicker shpe-kicker">Before and after redesign</span>
-                        <p>
-                          This board shows redesigned SHPE NJIT app screens and notes across the
-                          home, profile, events, ranking, settings, and feed flows. The redesign
-                          clarifies navigation, separates profile editing from profile viewing,
-                          rounds controls to match the app style, and adds clearer feed prompts.
-                        </p>
-                      </div>
-                      <figure className="shpe-board-frame">
-                        <Image
-                          alt="Before and after SHPE NJIT app redesign board with annotated screens and design notes."
-                          className="shpe-board-image"
-                          height={1512}
-                          src="/images/shpe/shpe-redesign-board.png"
-                          width={1913}
-                        />
-                      </figure>
+                    <div className="shpe-context-panel">
+                      <span className="section-kicker shpe-kicker">Before and after redesign</span>
+                      <p>
+                        This board shows redesigned SHPE NJIT app screens and notes across the
+                        home, profile, events, ranking, settings, and feed flows. The redesign
+                        clarifies navigation, separates profile editing from profile viewing,
+                        rounds controls to match the app style, and adds clearer feed prompts.
+                      </p>
                     </div>
+
+                    <figure
+                      aria-label="SHPE NJIT before and after redesign board"
+                      className="shpe-board-frame"
+                      tabIndex={0}
+                    >
+                      <Image
+                        alt="Before and after SHPE NJIT app redesign board with annotated screens and design notes."
+                        className="shpe-board-image"
+                        height={1400}
+                        src="/images/shpe/shpe-redesign-board-crop.png"
+                        width={1100}
+                      />
+                    </figure>
                   </div>
                 ) : (
                   <FigmaPrototype
