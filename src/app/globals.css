@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  --canvas: #fbfaf7;
+  --surface: #f3f1eb;
+  --charcoal: #111111;
+  --muted: #5d5f61;
+  --line: #d8d6cf;
+  --blue: #2563eb;
+  --green: #059669;
+  --orange: #ea580c;
+  --red: #e11d48;
+  --shadow-soft: 0 12px 35px rgb(17 17 17 / 0.07);
+  --shadow-selection: 0 18px 50px rgb(17 17 17 / 0.12);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-charcoal: var(--charcoal);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-blue: var(--blue);
+  --color-green: var(--green);
+  --color-orange: var(--orange);
+  --color-red: var(--red);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-selection: var(--shadow-selection);
+  --shadow-selection-strong: 0 24px 60px rgb(17 17 17 / 0.16);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background:
+    radial-gradient(circle at 1px 1px, rgb(17 17 17 / 0.09) 1px, transparent 0),
+    var(--canvas);
+  background-size: 28px 28px;
+  color: var(--charcoal);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  letter-spacing: 0;
+}
+
+::selection {
+  background: #c7d2fe;
+  color: var(--charcoal);
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  border-radius: 999px;
+  background: var(--charcoal);
+  color: var(--canvas);
+  padding: 0.7rem 1rem;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.selection-frame {
+  position: relative;
+}
+
+.selection-frame::before,
+.selection-frame::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--blue);
+  background: var(--canvas);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.selection-frame::before {
+  left: -5px;
+  top: -5px;
+}
+
+.selection-frame::after {
+  bottom: -5px;
+  right: -5px;
+}
+
+.selection-frame:hover::before,
+.selection-frame:hover::after {
+  opacity: 1;
+}
+
+.canvas-grid {
+  background-image:
+    linear-gradient(rgb(17 17 17 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(17 17 17 / 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
