@@ -94,24 +94,13 @@ a:hover {
   display: flex;
   font-family: var(--font-plex-sans), Arial, sans-serif;
   gap: 4px;
-  padding: 8px 10px 8px 16px;
-}
-
-.nav-brand {
-  border-right: 1px solid var(--rule);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  margin-right: 6px;
-  padding-right: 14px;
-  text-decoration: none;
+  padding: 8px 16px;
 }
 
 .nav-desktop-links {
   align-items: center;
   display: flex;
   gap: 22px;
-  padding: 0 10px;
 }
 
 .nav-link {

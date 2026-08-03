@@ -17,9 +17,6 @@ export function Nav({ activePage }: NavProps) {
     <>
       <nav aria-label="Primary" className="nav-shell">
         <div className="nav-inner">
-          <Link aria-label="Neta home" className="nav-brand" href="/" onClick={() => setMenuOpen(false)}>
-            N.
-          </Link>
           <div className="nav-desktop-links">
             <Link className="nav-link" data-active={activePage === "home"} href="/#work">
               Work
