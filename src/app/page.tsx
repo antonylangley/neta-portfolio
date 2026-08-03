@@ -1,4 +1,6 @@
+import { ChimeraOriginalGallery } from "@/components/ChimeraOriginalGallery";
 import { FigmaPrototype } from "@/components/FigmaPrototype";
+import { InspectableImageCard } from "@/components/ImageInspector";
 import { Nav } from "@/components/Nav";
 import Image from "next/image";
 import Link from "next/link";
@@ -134,27 +136,48 @@ export default function Home() {
                       </p>
                     </div>
 
-                    <figure
-                      aria-label="SHPE NJIT before and after redesign board"
-                      className="shpe-board-frame"
-                      tabIndex={0}
-                    >
-                      <Image
-                        alt="Before and after SHPE NJIT app redesign board with annotated screens and design notes."
-                        className="shpe-board-image"
-                        height={1400}
-                        src="/images/shpe/shpe-redesign-board-crop.png"
-                        width={1100}
-                      />
-                    </figure>
+                    <InspectableImageCard
+                      image={{
+                        alt: "Before and after SHPE NJIT app redesign board with annotated screens and design notes.",
+                        height: 1400,
+                        src: "/images/shpe/shpe-redesign-board-crop.png",
+                        width: 1100,
+                      }}
+                      imageClassName="shpe-board-image"
+                      initialZoom={1.65}
+                      modalTitle="SHPE NJIT Redesign Board"
+                      triggerAriaLabel="Open SHPE NJIT redesign board viewer"
+                      triggerClassName="shpe-board-frame"
+                    />
                   </div>
                 ) : (
-                  <FigmaPrototype
-                    aspectRatio="16 / 9.5"
-                    figmaEmbedUrl={project.figmaEmbedUrl}
-                    figmaPrototypeUrl={project.figmaPrototypeUrl}
-                    title={project.title}
-                  />
+                  <>
+                    <FigmaPrototype
+                      aspectRatio="16 / 9.5"
+                      figmaEmbedUrl={project.figmaEmbedUrl}
+                      figmaPrototypeUrl={project.figmaPrototypeUrl}
+                      title={project.title}
+                    />
+
+                    {project.title === "Chimera" ? (
+                      <div className="chimera-showcase">
+                        <div className="chimera-context-panel">
+                          <span className="section-kicker shpe-kicker">
+                            Original UI before redesign
+                          </span>
+                          <p>
+                            These screenshots capture the app creator&apos;s original Chimera UI
+                            before the redesign. The new prototype uses this baseline and his
+                            improvement requests as the starting point, then expands the product
+                            with clearer camera navigation, stronger process controls, easier
+                            scrubber behavior, more intentional stats, and entirely new feature
+                            flows.
+                          </p>
+                        </div>
+                        <ChimeraOriginalGallery />
+                      </div>
+                    ) : null}
+                  </>
                 )}
               </article>
             ))}
