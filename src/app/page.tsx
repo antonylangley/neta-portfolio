@@ -81,7 +81,7 @@ export default function Home() {
               <div>
                 <span>School</span>
                 <br />
-                NJIT
+                New Jersey Institute of Technology
               </div>
               <div>
                 <span>Location</span>
