@@ -138,6 +138,27 @@ export type Project = {
   sections: CaseStudySection[];
 };
 
+const figmaPrototypes = {
+  fileFinder: {
+    embedUrl:
+      "https://embed.figma.com/proto/ONdzq12FCH30o8BKlLZnTB/Prof-S-File-Finder-Wireframes--Copy-?node-id=203-419&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A3&embed-host=share",
+    fullUrl:
+      "https://www.figma.com/proto/ONdzq12FCH30o8BKlLZnTB/Prof-S-File-Finder-Wireframes--Copy-?node-id=203-419&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A3",
+  },
+  chimeraRedesign: {
+    embedUrl:
+      "https://embed.figma.com/proto/dOpCs7iBdvx63y5SCiRr62/IT-485---REDESIGN--Chimera---Kirin--Copy-?node-id=2086-801&scaling=scale-down&content-scaling=fixed&page-id=14%3A22&starting-point-node-id=2101%3A1006&embed-host=share",
+    fullUrl:
+      "https://www.figma.com/proto/dOpCs7iBdvx63y5SCiRr62/IT-485---REDESIGN--Chimera---Kirin--Copy-?node-id=2086-801&scaling=scale-down&content-scaling=fixed&page-id=14%3A22&starting-point-node-id=2101%3A1006",
+  },
+  njitAdmissions: {
+    embedUrl:
+      "https://embed.figma.com/proto/aNuP023sTunSMUPs02gsse/IT-485-Final---NJIT-Admissions?node-id=611-5101&p=f&scaling=scale-down&content-scaling=fixed&page-id=25%3A55&starting-point-node-id=394%3A2085&embed-host=share",
+    fullUrl:
+      "https://www.figma.com/proto/aNuP023sTunSMUPs02gsse/IT-485-Final---NJIT-Admissions?node-id=611-5101&p=f&scaling=scale-down&content-scaling=fixed&page-id=25%3A55&starting-point-node-id=394%3A2085",
+  },
+};
+
 // Replace these placeholder projects with Neta's real case studies. Keep the
 // same structure, paste only Figma iframe src values into figmaEmbedUrl, and
 // add or remove sections as each project needs.
@@ -157,8 +178,8 @@ export const projects: Project[] = [
     typeOfWork: "Mobile product design",
     accent: "#3b82f6",
     featured: true,
-    figmaEmbedUrl: "",
-    figmaPrototypeUrl: "",
+    figmaEmbedUrl: figmaPrototypes.fileFinder.embedUrl,
+    figmaPrototypeUrl: figmaPrototypes.fileFinder.fullUrl,
     coverImage: {
       src: "/images/projects/mobile-product-cover.svg",
       alt: "Placeholder cover for a mobile UI/UX case study.",
@@ -233,12 +254,12 @@ export const projects: Project[] = [
         eyebrow: "05 / Prototype",
         title: "Interactive Figma prototype",
         description:
-          "Paste the Figma embed src and full prototype URL into this project object in src/data/projects.ts.",
-        figmaEmbedUrl: "",
-        fullPrototypeUrl: "",
-        deviceType: "mobile",
-        aspectRatio: "9 / 19",
-        height: 720,
+          "Embedded Figma prototype for the Prof S File Finder wireframes. Replace this URL in src/data/projects.ts when the final prototype changes.",
+        figmaEmbedUrl: figmaPrototypes.fileFinder.embedUrl,
+        fullPrototypeUrl: figmaPrototypes.fileFinder.fullUrl,
+        deviceType: "desktop",
+        aspectRatio: "16 / 9",
+        height: 620,
       },
       {
         type: "reflection",
@@ -271,8 +292,8 @@ export const projects: Project[] = [
     typeOfWork: "Research and redesign",
     accent: "#f97316",
     featured: true,
-    figmaEmbedUrl: "",
-    figmaPrototypeUrl: "",
+    figmaEmbedUrl: figmaPrototypes.chimeraRedesign.embedUrl,
+    figmaPrototypeUrl: figmaPrototypes.chimeraRedesign.fullUrl,
     coverImage: {
       src: "/images/projects/research-redesign-cover.svg",
       alt: "Placeholder cover for a research-driven redesign case study.",
@@ -380,11 +401,11 @@ export const projects: Project[] = [
         eyebrow: "06 / Prototype",
         title: "Interactive Figma prototype",
         description:
-          "Paste the Figma embed src and full prototype URL into this project object in src/data/projects.ts.",
-        figmaEmbedUrl: "",
-        fullPrototypeUrl: "",
+          "Embedded Figma prototype for the Chimera/Kirin redesign. Replace this URL in src/data/projects.ts when the final prototype changes.",
+        figmaEmbedUrl: figmaPrototypes.chimeraRedesign.embedUrl,
+        fullPrototypeUrl: figmaPrototypes.chimeraRedesign.fullUrl,
         deviceType: "desktop",
-        aspectRatio: "16 / 10",
+        aspectRatio: "16 / 9",
         height: 640,
       },
       {
@@ -420,8 +441,8 @@ export const projects: Project[] = [
     typeOfWork: "Web platform design",
     accent: "#10b981",
     featured: true,
-    figmaEmbedUrl: "",
-    figmaPrototypeUrl: "",
+    figmaEmbedUrl: figmaPrototypes.njitAdmissions.embedUrl,
+    figmaPrototypeUrl: figmaPrototypes.njitAdmissions.fullUrl,
     coverImage: {
       src: "/images/projects/platform-service-cover.svg",
       alt: "Placeholder cover for a web platform or service experience case study.",
@@ -513,11 +534,11 @@ export const projects: Project[] = [
         eyebrow: "05 / Prototype",
         title: "Interactive Figma prototype",
         description:
-          "Paste the Figma embed src and full prototype URL into this project object in src/data/projects.ts.",
-        figmaEmbedUrl: "",
-        fullPrototypeUrl: "",
-        deviceType: "tablet",
-        aspectRatio: "4 / 3",
+          "Embedded Figma prototype for the NJIT Admissions experience. Replace this URL in src/data/projects.ts when the final prototype changes.",
+        figmaEmbedUrl: figmaPrototypes.njitAdmissions.embedUrl,
+        fullPrototypeUrl: figmaPrototypes.njitAdmissions.fullUrl,
+        deviceType: "desktop",
+        aspectRatio: "16 / 9",
         height: 620,
       },
       {
