@@ -45,36 +45,36 @@ export default function AboutPage() {
               <h3>Relevant Coursework</h3>
               <ul className="coursework-list">
                 <li>
-                  <strong>IS 247</strong>
+                  <strong>IT 485</strong>
+                  <span>Prototyping in UX</span>
+                </li>
+                <li>
+                  <strong>IS 347</strong>
                   <span>Designing the User Experience</span>
+                </li>
+                <li>
+                  <strong>IS 257</strong>
+                  <span>Design Thinking</span>
                 </li>
                 <li>
                   <strong>IS 375</strong>
                   <span>Discovering User Needs for UX</span>
                 </li>
                 <li>
-                  <strong>IT 201</strong>
-                  <span>Information Design Techniques</span>
-                </li>
-                <li>
-                  <strong>AD 150</strong>
-                  <span>Color and Composition</span>
-                </li>
-                <li>
-                  <strong>IS 117</strong>
-                  <span>Introduction to Website Development</span>
-                </li>
-                <li>
                   <strong>IS 218</strong>
                   <span>Building Web Applications</span>
                 </li>
                 <li>
-                  <strong>PSY 304 / 307</strong>
-                  <span>Social Science Research Methods I & II</span>
+                  <strong>IS 117</strong>
+                  <span>Introduction to Web Development</span>
                 </li>
                 <li>
-                  <strong>IS 350</strong>
-                  <span>Computers, Society and Ethics</span>
+                  <strong>PSY 210</strong>
+                  <span>Foundations of Cyberpsychology</span>
+                </li>
+                <li>
+                  <strong>IT 201</strong>
+                  <span>Information Design Techniques</span>
                 </li>
               </ul>
             </div>
