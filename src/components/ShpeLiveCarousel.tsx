@@ -6,38 +6,38 @@ import { useState } from "react";
 const shpeLiveScreens = [
   {
     alt: "SHPE NJIT app home screen with quick actions, announcements, and community highlights.",
-    height: 2556,
+    height: 2401,
     label: "Home",
     src: "/images/shpe/live/home.png",
     width: 1179,
   },
   {
     alt: "SHPE NJIT app events screen showing the September event calendar state.",
-    height: 1252,
+    height: 1208,
     label: "Events",
     src: "/images/shpe/live/events.png",
-    width: 600,
+    width: 553,
   },
   {
     alt: "SHPE NJIT app rank screen with semester ranking filters and an empty rankings state.",
-    height: 2556,
+    height: 2418,
     label: "Rank",
     src: "/images/shpe/live/rank.png",
     width: 1179,
   },
   {
     alt: "SHPE NJIT app profile screen with student details, links, and edit profile action.",
-    height: 1178,
+    height: 1069,
     label: "Profile",
     src: "/images/shpe/live/profile.png",
-    width: 556,
+    width: 515,
   },
   {
     alt: "SHPE NJIT app settings screen with account settings, preferences, and resources.",
-    height: 1470,
+    height: 1356,
     label: "Settings",
     src: "/images/shpe/live/settings.png",
-    width: 552,
+    width: 500,
   },
 ];
 
