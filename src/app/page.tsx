@@ -2,7 +2,7 @@ import { ChimeraOriginalGallery } from "@/components/ChimeraOriginalGallery";
 import { FigmaPrototype } from "@/components/FigmaPrototype";
 import { InspectableImageCard } from "@/components/ImageInspector";
 import { Nav } from "@/components/Nav";
-import Image from "next/image";
+import { ShpeLiveCarousel } from "@/components/ShpeLiveCarousel";
 import Link from "next/link";
 
 const resumePath = "/resume.pdf";
@@ -10,6 +10,12 @@ const email = "nr598@njit.edu";
 const linkedin = "https://www.linkedin.com/in/neta-rogovsky/";
 
 const projects = [
+  {
+    title: "SHPE NJIT App",
+    description:
+      "Ongoing work as UI/UX designer and frontend developer on the SHPE NJIT app, which is already live on the App Store and used by about 200 members. I create design files for the existing app and design new features for future implementation.",
+    imageSet: "shpe",
+  },
   {
     title: "RollTech",
     description:
@@ -36,12 +42,6 @@ const projects = [
       "https://embed.figma.com/proto/ONdzq12FCH30o8BKlLZnTB/Prof-S-File-Finder-Wireframes--Copy-?node-id=203-419&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A3&embed-host=share",
     figmaPrototypeUrl:
       "https://www.figma.com/proto/ONdzq12FCH30o8BKlLZnTB/Prof-S-File-Finder-Wireframes--Copy-?node-id=203-419&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A3",
-  },
-  {
-    title: "SHPE NJIT App",
-    description:
-      "Ongoing work as UI/UX designer and frontend developer on the SHPE NJIT app, which is already live on the App Store and used by about 200 members. I create design files for the existing app and design new features for future implementation.",
-    imageSet: "shpe",
   },
 ];
 
@@ -112,19 +112,7 @@ export default function Home() {
                 <p>{project.description}</p>
                 {"imageSet" in project ? (
                   <div className="shpe-showcase">
-                    <figure className="shpe-primary-frame">
-                      <div className="prototype-header">
-                        <span>Current app screen</span>
-                        <span>App Store live</span>
-                      </div>
-                      <Image
-                        alt="SHPE NJIT app home screen shown inside a phone mockup."
-                        className="shpe-primary-image"
-                        height={1644}
-                        src="/images/shpe/shpe-app-home.png"
-                        width={3024}
-                      />
-                    </figure>
+                    <ShpeLiveCarousel />
 
                     <div className="shpe-context-panel">
                       <span className="section-kicker shpe-kicker">Before and after redesign</span>
