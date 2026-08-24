@@ -17,15 +17,6 @@ const projects = [
     imageSet: "shpe",
   },
   {
-    title: "RollTech",
-    description:
-      "A custom internal tool built for NJIT Admissions, the stakeholder team behind this project, helping staff manage tasks, schedules, and team communication in one dashboard.",
-    figmaEmbedUrl:
-      "https://embed.figma.com/proto/aNuP023sTunSMUPs02gsse/IT-485-Final---NJIT-Admissions?node-id=611-5101&p=f&scaling=scale-down&content-scaling=fixed&page-id=25%3A55&starting-point-node-id=394%3A2085&embed-host=share",
-    figmaPrototypeUrl:
-      "https://www.figma.com/proto/aNuP023sTunSMUPs02gsse/IT-485-Final---NJIT-Admissions?node-id=611-5101&p=f&scaling=scale-down&content-scaling=fixed&page-id=25%3A55&starting-point-node-id=394%3A2085",
-  },
-  {
     title: "Chimera",
     description:
       "A UI redesign for a stakeholder's existing app connected to his home security camera system. My team rebuilt the interface around his suggestions and vision for the app's next version.",
@@ -33,6 +24,15 @@ const projects = [
       "https://embed.figma.com/proto/dOpCs7iBdvx63y5SCiRr62/IT-485---REDESIGN--Chimera---Kirin--Copy-?node-id=2086-801&scaling=scale-down&content-scaling=fixed&page-id=14%3A22&starting-point-node-id=2101%3A1006&embed-host=share",
     figmaPrototypeUrl:
       "https://www.figma.com/proto/dOpCs7iBdvx63y5SCiRr62/IT-485---REDESIGN--Chimera---Kirin--Copy-?node-id=2086-801&scaling=scale-down&content-scaling=fixed&page-id=14%3A22&starting-point-node-id=2101%3A1006",
+  },
+  {
+    title: "RollTech",
+    description:
+      "A custom internal tool built for NJIT Admissions, the stakeholder team behind this project, helping staff manage tasks, schedules, and team communication in one dashboard.",
+    figmaEmbedUrl:
+      "https://embed.figma.com/proto/aNuP023sTunSMUPs02gsse/IT-485-Final---NJIT-Admissions?node-id=611-5101&p=f&scaling=scale-down&content-scaling=fixed&page-id=25%3A55&starting-point-node-id=394%3A2085&embed-host=share",
+    figmaPrototypeUrl:
+      "https://www.figma.com/proto/aNuP023sTunSMUPs02gsse/IT-485-Final---NJIT-Admissions?node-id=611-5101&p=f&scaling=scale-down&content-scaling=fixed&page-id=25%3A55&starting-point-node-id=394%3A2085",
   },
   {
     title: "File Finder",
