@@ -2,6 +2,7 @@ import { ChimeraOriginalGallery } from "@/components/ChimeraOriginalGallery";
 import { FigmaPrototype } from "@/components/FigmaPrototype";
 import { InspectableImageCard } from "@/components/ImageInspector";
 import { Nav } from "@/components/Nav";
+import { PortfolioLanyard } from "@/components/PortfolioLanyard";
 import { ShpeLiveCarousel } from "@/components/ShpeLiveCarousel";
 import Link from "next/link";
 
@@ -72,31 +73,35 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="info-panel" aria-label="Profile details">
-              <div>
-                <span>Title</span>
-                <br />
-                HCI & UI/UX Designer
-              </div>
-              <div>
-                <span>School</span>
-                <br />
-                New Jersey Institute of Technology
-              </div>
-              <div>
-                <span>Location</span>
-                <br />
-                Newark, NJ
-              </div>
-              <div>
-                <span>Contact</span>
-                <br />
-                <a href={`mailto:${email}`}>{email}</a>
-              </div>
-              <div>
-                <a href={linkedin} rel="noopener noreferrer" target="_blank">
-                  LinkedIn -&gt;
-                </a>
+            <div className="hero-side-stack">
+              <PortfolioLanyard />
+
+              <div className="info-panel" aria-label="Profile details">
+                <div>
+                  <span>Title</span>
+                  <br />
+                  HCI & UI/UX Designer
+                </div>
+                <div>
+                  <span>School</span>
+                  <br />
+                  New Jersey Institute of Technology
+                </div>
+                <div>
+                  <span>Location</span>
+                  <br />
+                  Newark, NJ
+                </div>
+                <div>
+                  <span>Contact</span>
+                  <br />
+                  <a href={`mailto:${email}`}>{email}</a>
+                </div>
+                <div>
+                  <a href={linkedin} rel="noopener noreferrer" target="_blank">
+                    LinkedIn -&gt;
+                  </a>
+                </div>
               </div>
             </div>
           </div>

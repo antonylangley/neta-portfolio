@@ -238,6 +238,33 @@ h3 {
   color: var(--ink);
 }
 
+.hero-side-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.lanyard-stage {
+  cursor: grab;
+  height: clamp(360px, 38vw, 470px);
+  margin: -38px 0 -10px;
+  min-height: 320px;
+  position: relative;
+  touch-action: none;
+  width: 100%;
+}
+
+.lanyard-stage:active {
+  cursor: grabbing;
+}
+
+.lanyard-canvas {
+  display: block;
+  height: 100% !important;
+  width: 100% !important;
+}
+
 .info-panel {
   border-left: 1px solid var(--rule);
   color: var(--ink-soft);
@@ -961,6 +988,12 @@ h3 {
 
   .home-hero-cols {
     gap: 28px;
+  }
+
+  .lanyard-stage {
+    height: clamp(340px, 66vw, 460px);
+    margin: -18px auto 0;
+    max-width: 520px;
   }
 
   .info-panel {
