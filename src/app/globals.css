@@ -238,13 +238,6 @@ h3 {
   color: var(--ink);
 }
 
-.hero-side-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  min-width: 0;
-}
-
 .lanyard-stage {
   cursor: grab;
   height: clamp(360px, 38vw, 470px);
