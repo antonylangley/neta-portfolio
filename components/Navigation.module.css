@@ -1,0 +1,39 @@
+.item { position: relative; }
+.indicator {
+  position: absolute;
+  left: calc(100% + 5px);
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  background: url('/navigation/music-star-white.png') center / contain no-repeat;
+  /* The supplied white artwork also removes the PNGs' solid backdrops. */
+  mask: url('/navigation/music-star-white.png') center / contain no-repeat;
+  mask-mode: luminance;
+  opacity: 0;
+  transform: translateY(-50%) scale(.9);
+  transition: opacity 80ms ease-out, transform 80ms ease-out;
+}
+/* The old marker finishes fading before the new marker starts appearing. */
+.item[data-active='true'] .indicator {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+  transition: opacity 120ms ease-out 80ms, transform 120ms ease-out 80ms;
+}
+.item[data-nav-item='home'][data-active='true'] .indicator { opacity: 1; }
+:global(.site-header[data-solid='true']) .indicator {
+  background-image: url('/navigation/music-star-gray.png');
+}
+:global(.site-header[data-solid='true']) .item[data-active='true'] .indicator { opacity: 1; }
+:global(.site-header[data-solid='true']) .item[data-nav-item='home'] .indicator {
+  background-image: url('/navigation/music-star-black.png');
+}
+@media (max-width: 540px) {
+  .indicator { width: 28px; height: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .indicator, .item[data-active='true'] .indicator { transition: none; transform: translateY(-50%); }
+}
+
+/* Reserve room for the last marker at the viewport edge. */
+.item[data-nav-item="connect"] { margin-right: 24px; }

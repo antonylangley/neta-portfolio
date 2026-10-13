@@ -1,0 +1,30 @@
+.panel { position: fixed; z-index: 40; top: 28px; left: 27px; width: 244px; padding: 20px 24px; background: var(--chimera-blue); border-radius: 22px; font-size: 16px; line-height: 1.45; color: #385969; opacity: var(--nav-opacity, 1); transition: opacity 180ms ease; max-height: calc(100dvh - 56px); overflow-y: auto; }
+.panel[inert] { pointer-events: none; }
+.panel:has(:focus-visible) { opacity: 1; }
+.topRow, .titleRow { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.topRow > a { font-size: 1em; }
+.panel[data-expanded='true'] .topRow > a { font-size: 1em; }
+.topRow button { display: grid; place-items: center; border: 0; background: none; color: inherit; font: 24px/1 Arial, Helvetica, sans-serif; padding: 0; width: 28px; height: 28px; cursor: pointer; }
+.contents { border-top: 1px solid #ffffffb3; margin-top: 14px; padding-top: 14px; }
+.titleRow { color: #fff; font-size: 22px; font-weight: 600; }
+.progress { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: conic-gradient(#385969 var(--progress, 0%), #38596933 0); position: relative; }
+.progress::after { content: ''; position: absolute; inset: 5px; border-radius: 50%; background: var(--chimera-blue); }
+.contents nav { display: flex; flex-direction: column; margin-top: 18px; }
+.panel a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.panel a:focus-visible, .panel button:focus-visible { outline: 2px solid #385969; outline-offset: 3px; }
+@media (max-width: 1200px) {
+  .panel { width: 205px; left: 20px; padding: 18px; }
+}
+@media (max-width: 1100px) {
+  .space { height: 190px; }
+  .panel { top: 20px; left: 20px; width: min(270px, calc(100% - 40px)); }
+  .contents nav { flex-direction: row; flex-wrap: wrap; gap: 10px 24px; margin-top: 12px; }
+  .titleRow { font-size: 20px; }
+}
+@media (max-width: 700px) {
+  .space { height: 200px; }
+  .panel { top: 16px; left: 20px; width: min(270px, calc(100% - 40px)); padding: 16px 20px; border-radius: 18px; font-size: 14px; max-height: calc(100dvh - 32px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .panel { transition: none; }
+}

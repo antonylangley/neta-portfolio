@@ -1,0 +1,54 @@
+.heading { margin: 0 0 52px; font: 500 32px/1.2 Arial, Helvetica, sans-serif; text-align: center; letter-spacing: -.02em; }
+.labeledCopy { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 40px; }
+.label { margin: 0; color: #858585; font: italic 20px/1.3 Arial, Helvetica, sans-serif; }
+.copy { font: 24px/1.34 Georgia, 'Times New Roman', serif; }
+.copy p { margin: 0; }
+.copy p + p { margin-top: 28px; }
+.metadata { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; border-top: 1px solid #c7c7c7; margin: 48px -66px 0; padding: 16px 8% 0 16%; color: #777; }
+.metadata dt { margin-bottom: 8px; font: 20px/1.3 Arial, Helvetica, sans-serif; }
+.metadata dd { margin: 0; font: 18px/1.4 Georgia, 'Times New Roman', serif; }
+.showcase { margin: 0; min-width: 0; }
+.showcase a { display: block; }
+.showcase img { display: block; width: 100%; height: auto; }
+.showcase a:focus-visible { outline: 2px solid #76bff0; outline-offset: 6px; }
+.findings { list-style: none; padding: 0 20px; margin: 12px 0 0; color: #777; font: 17px/1.55 Arial, Helvetica, sans-serif; }
+.findings li { display: flex; align-items: baseline; gap: 9px; margin: 3px 0; }
+.number { flex-shrink: 0; border: 1px solid #c7c7c7; border-radius: 50%; width: 28px; height: 28px; text-align: center; font-size: 14px; line-height: 26px; }
+.findings strong { font-weight: 500; }
+.findingDescription::before { content: ' · '; }
+.decision h3 { margin: 0 0 26px; color: #858585; font: italic 20px/1.4 Arial, Helvetica, sans-serif; }
+.competitor { min-width: 0; }
+.competitor + .competitor { border-left: 1px solid #19191b; padding-left: 30px; }
+/* The provided comparison is a single asset. These windows show its original
+   logos without redrawing them; the findings remain responsive, selectable text. */
+.competitorLogo { position: relative; overflow: hidden; aspect-ratio: 1; width: 100%; max-width: 202px; margin: 0 auto 34px; }
+.competitorLogo img { position: absolute; max-width: none; width: 329.703%; height: auto; left: -40.594%; top: -24.752%; }
+.logoRight img { left: -189.604%; }
+.competitor h4 { margin: 0 0 10px; color: #595959; font: 500 22px/1.25 Arial, Helvetica, sans-serif; }
+.competitor ul { list-style: none; padding: 0; margin: 0; color: #595959; font: 20px/1.45 Georgia, 'Times New Roman', serif; }
+@media (max-width: 1100px) {
+  .heading { font-size: 28px; }
+  .copy { font-size: 21px; }
+  .labeledCopy { grid-template-columns: 120px minmax(0, 1fr); gap: 24px; }
+  .metadata { margin-inline: 0; padding-left: 0; padding-right: 0; }
+  .competitor + .competitor { padding-left: 20px; }
+  .competitor h4 { font-size: 19px; }
+  .competitor ul { font-size: 18px; }
+}
+@media (max-width: 700px) {
+  .heading { font-size: 26px; text-align: left; margin-bottom: 28px; }
+  .labeledCopy { grid-template-columns: 1fr; gap: 16px; }
+  .copy { font-size: 19px; line-height: 1.5; }
+  .label, .decision h3 { font-size: 16px; }
+  .metadata { margin-top: 28px; gap: 22px; grid-template-columns: 1fr 1fr; }
+  .metadata dt { font-size: 15px; }
+  .metadata dd { font-size: 15px; }
+  .findings { padding: 0; font-size: 16px; margin-top: 20px; }
+  .findings li { margin-bottom: 12px; }
+  .findingDescription { display: block; }
+  .findingDescription::before { content: ''; }
+  .decision h3 { margin-bottom: 18px; }
+}
+@media (max-width: 420px) {
+  .competitor + .competitor { border-left: 0; border-top: 1px solid #19191b; padding: 28px 0 0; }
+}

@@ -1,0 +1,104 @@
+.pageContent { min-height: 100%; }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #fff;
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+
+.fading { opacity: 0; }
+
+.composition {
+  position: relative;
+  width: min(300px, 72vw, 42svh);
+  aspect-ratio: 390 / 280;
+  transform: translateY(-1.5svh);
+}
+
+.horseWindow {
+  position: absolute;
+  top: 0;
+  left: 28%;
+  z-index: 1;
+  width: 72%;
+  height: 69%;
+  overflow: hidden;
+}
+
+.horseFrame {
+  position: absolute;
+  top: -25%;
+  left: 3%;
+  width: 94%;
+  aspect-ratio: 1;
+  transform: translate(var(--frame-shift-x), var(--frame-shift-y));
+  background-image: url('/loader/horse-spritesheet.png');
+  background-repeat: no-repeat;
+  background-size: 600% 200%;
+  background-position: var(--sprite-x) var(--sprite-y);
+}
+
+.trimLeftArtifact { clip-path: inset(0 0 0 7%); }
+.trimRightArtifact { clip-path: inset(0 5.5% 0 0); }
+
+.musicStar {
+  position: absolute;
+  top: 29%;
+  left: 0;
+  z-index: 0;
+  width: 31.5%;
+  height: auto;
+  transform-origin: center;
+  animation: star-idle 1s ease-in-out infinite;
+}
+
+@keyframes star-idle {
+  0% { transform: translate3d(0, 0, 0) rotate(-1.5deg) scale(1); }
+  25% { transform: translate3d(1.5px, -2.5px, 0) rotate(0.5deg) scale(1.008); }
+  50% { transform: translate3d(0, -1px, 0) rotate(2deg) scale(1.015); }
+  75% { transform: translate3d(-1.5px, -2px, 0) rotate(0deg) scale(1.007); }
+  100% { transform: translate3d(0, 0, 0) rotate(-1.5deg) scale(1); }
+}
+
+.progressTrack {
+  position: absolute;
+  top: 76%;
+  left: 22.5%;
+  width: 70%;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dedede;
+}
+
+.progressFill {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: #000;
+  animation: advance 1.35s cubic-bezier(.2, .65, .25, 1) forwards;
+}
+
+.complete { width: 100%; animation: none; transition: width 180ms ease-out; }
+
+@keyframes advance {
+  to { width: 82%; }
+}
+
+@media (max-width: 600px) {
+  .composition { width: min(300px, 72vw, 42svh); }
+  .progressTrack { height: 7px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay { transition-duration: 120ms; }
+  .musicStar { animation: none; }
+  .progressFill { width: 82%; animation: none; }
+  .complete { width: 100%; transition: none; }
+}

@@ -1,98 +1,35 @@
-# Neta Portfolio
+# Neta Rogovsky — portfolio first draft
 
-A polished, responsive HCI and UI/UX design portfolio for Neta Rogovsky. The current implementation ports the Claude design files from `Home.dc.html`, `About.dc.html`, and `Nav.dc.html` into a Next.js app that is ready for Vercel.
+Next.js App Router, React, TypeScript, and plain responsive CSS. The homepage hero, beginning of Product, and contact footer are implemented.
 
-## Technology
+## Run
 
-- Next.js App Router
-- TypeScript
-- Plain CSS adapted from the Claude design
-- Local static content
-- No CMS, database, authentication, paid service, or environment variables
-
-## Local Setup
-
-```bash
-npm install
+```sh
+npm ci
 npm run dev
 ```
 
-Open the local URL printed by Next.js.
+Open http://localhost:3000. Production checks: `npm run lint`, `npm run typecheck`, `npm run build`. Run production with `npm start`. Vercel can use its standard Next.js preset; no deployment or account configuration was created.
 
-## Quality Commands
+## Structure
 
-```bash
-npm run lint
-npm run typecheck
-npm run build
-```
+- `app/page.tsx`: homepage and minimal next-section placeholder.
+- `app/layout.tsx`: accessible document shell and metadata.
+- `app/globals.css`: composition, responsive breakpoints, focus and reduced-motion styles.
+- `components/Hero.tsx`: hero, navigation, editorial statement, location information.
+- `components/ParticleRing.tsx`: isolated animation and static SVG fallback.
+- `public/starfield.svg`: original procedural background; no stock imagery.
 
-Run these before pushing content changes.
+The workspace initially contained only read-only project instructions and an empty `sources/` folder. The reference image was recovered from the linked chat. No separate background/font assets were available. Original references and instructions remain unchanged.
 
-## Edit Content
+## Particle implementation
 
-Primary content is intentionally simple:
+Inspired specifically by the central object at https://motion.dev/examples/js-vgpu-uniforms: a circular field with depth projection, pointer-controlled speed and tilt, and press-to-tighten spread. The full hero receives pointer input, with amplified tilt and translation. This first pass uses Canvas 2D rather than requiring WebGPU or additional animation packages. It renders 5,600 points (2,800 on small screens), caps device-pixel ratio at 1.75, smooths pointer input, and stops its animation loop offscreen, in hidden tabs , or with reduced motion enabled. Touch scrolling is never intercepted. The decorative canvas is hidden from assistive technology; the headline remains semantic HTML. A server-rendered static SVG particle ring remains when JavaScript or canvas is unavailable. SVG coordinates are rounded for consistent hydration across JS engines.
 
-- Home page and project list: `src/app/page.tsx`
-- About page: `src/app/about/page.tsx`
-- Navigation: `src/components/Nav.tsx`
-- Figma iframe renderer: `src/components/FigmaPrototype.tsx`
-- SHPE screenshots: `public/images/shpe`
-- Visual styling: `src/app/globals.css`
+## Next design pass
 
-## Add Figma Prototype Embeds
+Replace the procedural background with the original source asset if supplied; refine typography with the intended font; add real selected projects and Community/About destinations. Community is visibly reserved text rather than a dead link. Product links to the placeholder and About links to the supplied biography lines. No case studies, CMS, invented projects, or toolkit icons have been added. The contact footer links to the supplied email and LinkedIn; résumé is disabled pending upload. Background stars drift and twinkle, respecting reduced motion. A future GPU renderer can replace ParticleRing without changing the page layout.
 
-The home page stores the selected work array in `src/app/page.tsx`. Paste only the iframe `src` URL into `figmaEmbedUrl`, and paste the normal Figma prototype URL into `figmaPrototypeUrl`. Do not paste raw iframe HTML.
+## Verification
 
-## Replace the Resume
-
-The resume file is served from `public/resume.pdf`. Replace that file whenever Neta has a new PDF. The home page download button and about page download button both use the native `download` attribute.
-
-## SEO and Social Preview
-
-Edit metadata in `src/app/layout.tsx`.
-
-## Favicon
-
-Replace `src/app/favicon.ico` with Neta's final favicon.
-
-## Deploy Through Vercel
-
-1. Push the repository to `main`.
-2. Go to [Vercel New Project](https://vercel.com/new).
-3. Import `antonylangley/neta-portfolio`.
-4. Keep the default framework setting as Next.js.
-5. Use the default install command:
-
-```bash
-npm install
-```
-
-6. Use the default build command:
-
-```bash
-npm run build
-```
-
-7. Leave environment variables empty.
-8. Click Deploy.
-
-Future pushes to `main` will automatically create new Vercel deployments once the project is connected.
-
-## Connect a Domain Later
-
-In Vercel:
-
-1. Open the project.
-2. Go to Settings, then Domains.
-3. Add the custom domain.
-4. Follow Vercel's DNS instructions.
-5. Update the metadata in `src/app/layout.tsx` if the final domain should be reflected in page metadata.
-
-## Before Submitting the Portfolio Link
-
-- Confirm the biography, school, email, and LinkedIn details are final.
-- Confirm the selected-work project copy and Figma prototype URLs are final.
-- Replace `public/resume.pdf` when Neta has a newer resume.
-- Replace the favicon.
-- Run `npm run lint`, `npm run typecheck`, and `npm run build`.
+Build, lint and TypeScript checks were run. Browser review covered desktop (1440px), tablet (768px), mobile (390px), narrow mobile (320px), document overflow, canvas initialization, and contact/top navigation. Reduced-motion and no-canvas behavior are implemented as explicit code paths; OS-level reduced-motion emulation was not available in the browser testing tool.

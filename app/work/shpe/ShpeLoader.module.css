@@ -1,0 +1,8 @@
+.loader { position: fixed; inset: 0; z-index: 35; display: grid; place-items: center; overflow: hidden; background: #020304; opacity: 1; visibility: visible; transition: opacity 600ms ease, visibility 600ms step-end; }
+.loader[data-state='leaving'] { opacity: 0; visibility: hidden; }
+.glow { position: absolute; width: min(70vw, 840px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #071e7866 0, #07153c32 38%, transparent 72%); filter: blur(32px); animation: glow-pulse 1.4s ease-in-out infinite alternate; }
+.symbol { position: relative; width: clamp(180px, 15vw, 260px); height: auto; filter: drop-shadow(0 0 30px #1553a680); animation: loader-spin 1.1s linear infinite; }
+@keyframes loader-spin { to { transform: rotateY(360deg); } }
+@keyframes glow-pulse { from { opacity: .55; transform: scale(.9); } to { opacity: 1; transform: scale(1.08); } }
+@media (max-width: 700px) { .symbol { width: 160px; } }
+@media (prefers-reduced-motion: reduce) { .symbol, .glow { animation: none; } .loader { transition-duration: 180ms; } }

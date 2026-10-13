@@ -1,0 +1,53 @@
+.toolkit { padding: 24px 0 50px; text-align: center; }
+.toolkit.toolkit h2 { margin: 22px 0 0; color: #b4b6bf; font: 500 16px/1.4 Arial, Helvetica, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+.dock { display: inline-flex; align-items: flex-end; gap: 10px; margin: 0; padding: 10px 12px; list-style: none; border: 1.5px solid #78828e; border-radius: 24px; background: #424e5f; box-shadow: inset 0 1px 0 #ffffff16, 0 10px 24px #0003; }
+.item { position: relative; height: 64px; display: flex; align-items: flex-end; }
+.divider { margin-left: 20px; }
+.divider::before { content: ''; position: absolute; left: -16px; bottom: 5px; height: 54px; width: 1px; background: #9aa1ac80; }
+.icon { display: grid; place-items: center; width: 64px; height: 64px; flex-shrink: 0; border: 0; border-radius: 15px; padding: 9px; background: #fff; box-shadow: 0 5px 8px #0003; cursor: default; transform-origin: center bottom; transition: width .22s cubic-bezier(.2,.8,.25,1), height .22s cubic-bezier(.2,.8,.25,1), transform .22s cubic-bezier(.2,.8,.25,1); }
+.icon img { width: 100%; height: 100%; object-fit: contain; }
+.icon:focus-visible { outline: 2px solid #f1bb84; outline-offset: 4px; }
+.label { position: absolute; bottom: calc(100% + 42px); left: 50%; transform: translateX(-50%) translateY(4px); padding: 9px 16px; white-space: nowrap; border: 1px solid #91959e; border-radius: 24px; color: #30343b; background: #b5b7bf; box-shadow: 0 3px 8px #0002; font-size: 14px; font-weight: 600; visibility: hidden; opacity: 0; pointer-events: none; z-index: 3; transition: opacity .15s, transform .2s; }
+.label::after { content: ''; position: absolute; top: calc(100% - 4px); left: calc(50% - 4px); width: 8px; height: 8px; transform: rotate(45deg); background: #b5b7bf; border-right: 1px solid #91959e; border-bottom: 1px solid #91959e; }
+.item:hover .label, .item:focus-within .label { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+.item:focus-within .icon { width: 88px; height: 88px; transform: translateY(-8px); }
+@media (hover: hover) and (pointer: fine) {
+ .item:hover .icon { width: 88px; height: 88px; transform: translateY(-8px); }
+ .item:has(+ .item:hover) .icon, .item:hover + .item .icon { width: 72px; height: 72px; transform: translateY(-3px); }
+}
+.claude { background: #d97752; }
+.chatgpt, .notion, .github, .vscode { background: #fff; }
+.illustrator { background: #330000; padding: 5px; }
+.illustrator img { background: #ff9a00; border-radius: 10px; }
+.photoshop { background: #001e36; padding: 5px; }
+.figma { background: #202124; padding: 10px; }
+.canva { background: linear-gradient(135deg, #02c9c6, #2084f4 60%, #8539ef); }
+.canva img { filter: brightness(0) invert(1); }
+.miro { background: #ffda38; }
+@media (max-width: 1000px) {
+ .toolkit { padding: 54px 0 0; }
+ .dock { gap: 8px; }
+ .item { height: 44px; }
+ .icon { width: 44px; height: 44px; border-radius: 11px; padding: 7px; }
+ .item:hover .icon, .item:focus-within .icon { width: 59px; height: 59px; }
+ .item:has(+ .item:hover) .icon, .item:hover + .item .icon { width: 49px; height: 49px; }
+ .divider { margin-left: 12px; }
+ .divider::before { left: -11px; height: 34px; }
+}
+@media (max-width: 700px) {
+ .dock { display: grid; grid-template-columns: repeat(5, 44px); gap: 20px 10px; padding: 14px; border-radius: 20px; }
+ .divider { margin-left: 0; }
+ .divider::before { display: none; }
+ .item:hover .icon, .item:focus-within .icon { width: 44px; height: 44px; transform: translateY(-6px) scale(1.14); }
+ .item:has(+ .item:hover) .icon, .item:hover + .item .icon { width: 44px; height: 44px; transform: none; }
+ .label { font-size: 12px; bottom: calc(100% + 16px); padding: 7px 10px; }
+ .toolkit.toolkit h2 { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .icon, .label { transition: none; }
+ .item:hover .icon, .item:focus-within .icon, .item:has(+ .item:hover) .icon, .item:hover + .item .icon { width: 54px; height: 54px; transform: none; }
+ .label { bottom: calc(100% + 14px); }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 1000px) {
+ .item:hover .icon, .item:focus-within .icon, .item:has(+ .item:hover) .icon, .item:hover + .item .icon { width: 44px; height: 44px; }
+}
